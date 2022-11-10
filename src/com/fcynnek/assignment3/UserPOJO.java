@@ -8,7 +8,8 @@ import java.io.IOException;
 public class UserPOJO {
 // this class will read a file, parse, and store user information
 
-		public BufferedReader fileReader () {
+//		public static BufferedReader fileReader () {
+		public static void main(String[] args) {
 			
 			BufferedReader fileReader = null;
 			
@@ -19,6 +20,8 @@ public class UserPOJO {
 				try {
 					while ((line = fileReader.readLine()) != null) {
 						System.out.println(line);
+						String[] parsedLine = line.split(",");
+						System.out.println(parsedLine);
 					}
 				} catch (IOException e) {
 					System.out.println("I/O Exception ocurred");
@@ -36,9 +39,15 @@ public class UserPOJO {
 					}
 				
 			}
+//			for (String line : fileReader) {
+//				String[] stringArray = line.split(",");
+//				System.out.println(stringArray);
+//				for (String array : stringArray) {
+//					System.out.println(array);
+//				}
 			
 			
-			return fileReader;
+//			return fileReader;
 			
 		}
 
