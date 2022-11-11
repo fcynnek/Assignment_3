@@ -1,54 +1,31 @@
 package com.fcynnek.assignment3;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class UserPOJO {
-// this class will read a file, parse, and store user information
-
-//		public static BufferedReader fileReader () {
-		public static void main(String[] args) {
-			
-			BufferedReader fileReader = null;
-			
-			try {
-				fileReader = new BufferedReader (new FileReader("data.txt"));
-				
-				String line;
-				try {
-					while ((line = fileReader.readLine()) != null) {
-						System.out.println(line);
-						String[] parsedLine = line.split(",");
-						System.out.println(parsedLine);
-					}
-				} catch (IOException e) {
-					System.out.println("I/O Exception ocurred");
-					e.printStackTrace();
-				}
-			} catch (FileNotFoundException e) {
-				System.out.println(".txt File not found");
-				e.printStackTrace();
-			} finally {
-			// closing the file reader
-					try {
-						fileReader.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				
-			}
-//			for (String line : fileReader) {
-//				String[] stringArray = line.split(",");
-//				System.out.println(stringArray);
-//				for (String array : stringArray) {
-//					System.out.println(array);
-//				}
-			
-			
-//			return fileReader;
-			
-		}
-
+// this class will store user information
+	
+	// storing the data from UserService class as private objects
+	private String username;
+	private String password;
+	private String name;
+	
+	public String getUsername() {
+		return username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 }
