@@ -9,16 +9,19 @@ public class UserService {
 // this class will validate the user input and compares against the info stored in UserPOJO class
 // this class will also read a file, parse, and pass it to UserPOJO class
 
-//	public static void fileReader() {
-	public static void main(String[] args) {
 	// this method reads the data.txt file and parse the data
+	public static void fileReader() {
+
+	// temporarily adding main so I can run this
+//	public static void main(String[] args) { 
 
 		BufferedReader fileReader = null;
 
 		try {
 			fileReader = new BufferedReader(new FileReader("data.txt"));
 
-			String line;
+			String line = "";
+			
 			try {
 				// reading each line as long as it is not null
 				while ((line = fileReader.readLine()) != null) {
@@ -26,9 +29,13 @@ public class UserService {
 
 					// splitting each read line by the commas
 					String[] parsedLine = line.split(",");
-					System.out.println(parsedLine[0]);
-					System.out.println(parsedLine[1]);
-					System.out.println(parsedLine[2]);
+					String parsedUsername = parsedLine[0]; 	// storing parsed username
+					String parsedPassword = parsedLine[1]; 	// storing parsed password
+					String parsedName = parsedLine[2]; 		// storing parsed name
+					System.out.println(parsedUsername);
+					System.out.println(parsedPassword);
+					System.out.println(parsedName);
+					return;
 				}
 			} catch (IOException e) {
 				System.out.println("I/O Exception ocurred");
@@ -46,6 +53,11 @@ public class UserService {
 			}
 
 		}
+		//return null;
+		
 	}
+	
+	UserPOJO userPOJO = new UserPOJO();
+	
 
 }
