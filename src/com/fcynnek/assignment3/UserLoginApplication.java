@@ -8,15 +8,29 @@ public class UserLoginApplication {
 	public static void main(String[] args) {
 		
 		System.out.println("Welcome to Assignment #3");
-		System.out.println("Please enter your e-mail:");
+		getUsername();
 		
-		Scanner userEmail = new Scanner(System.in);
-		String username = userEmail.nextLine();
-		
-		System.out.println("Please enter your password:");
-		
-		Scanner userPassword = new Scanner(System.in);
-		String password = userPassword.nextLine();
+		getPassword();
 	}
 
+
+	public static String getUsername() {
+		System.out.println("Please enter your e-mail:");
+		
+		try (Scanner userEmail = new Scanner(System.in)) {
+			String username = userEmail.nextLine();
+		}
+		return getUsername();
+				
+	}
+
+	public static String getPassword() {
+		System.out.println("Please enter your password:");
+		
+		try (Scanner userPassword = new Scanner(System.in)) {
+			String password = userPassword.nextLine();
+		}
+		return getPassword();
+		
+	}
 }

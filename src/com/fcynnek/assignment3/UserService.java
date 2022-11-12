@@ -12,9 +12,6 @@ public class UserService {
 	// this method reads the data.txt file and parse the data
 	public static String fileReader() {
 
-	// temporarily adding main so I can run this
-//	public static void main(String[] args) { 
-
 		BufferedReader fileReader = null;
 
 		try {
@@ -60,5 +57,23 @@ public class UserService {
 	// calling UserPOJO to bring over the stored data
 	UserPOJO userPOJO = new UserPOJO();
 	
+	String storedUsername = userPOJO.getUsername();
+	String storedPassword = userPOJO.getPassword();
+	String storedName = userPOJO.getName();
+	
+	// calling main to bring over the user input for validation
+	UserLoginApplication userInput = new UserLoginApplication();
+	
+	String userInputUsername = UserLoginApplication.getUsername();
+	String userInputPassword = UserLoginApplication.getPassword();
+	
+	// validating values
+	public static boolean isGoodUserInput(String storedUsername, String userInputUsername, String storedPassword, String userInputPassword) {
+		if (storedUsername == userInputUsername && storedPassword == userInputPassword) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 }
