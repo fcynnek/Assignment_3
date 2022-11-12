@@ -7,7 +7,6 @@ public class UserPOJO {
 	UserService userService = new UserService();
 	
 	String parsedUsername = UserService.fileReader();
-		System.out.println(parsedUsername);
 	String parsedPassword = UserService.fileReader();
 	String parsedName = UserService.fileReader();
 
@@ -16,26 +15,24 @@ public class UserPOJO {
 	private String password;
 	private String name;
 
+	// getters
 	public String getUsername() {
 		return username;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public String getName() {
 		return name;
 	}
 
+	// setters
 	public void setUsername(String parsedUsername) {
 		this.parsedUsername = username;
 	}
-
 	public void setPassword(String parsedPassword) {
 		this.parsedPassword = password;
 	}
-
 	public void setName(String parsedName) {
 		this.parsedName = name;
 	}

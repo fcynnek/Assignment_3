@@ -10,7 +10,7 @@ public class UserService {
 // this class will also read a file, parse, and pass it to UserPOJO class
 
 	// this method reads the data.txt file and parse the data
-	public static void fileReader() {
+	public static String fileReader() {
 
 	// temporarily adding main so I can run this
 //	public static void main(String[] args) { 
@@ -35,7 +35,7 @@ public class UserService {
 					System.out.println(parsedUsername);
 					System.out.println(parsedPassword);
 					System.out.println(parsedName);
-					return;
+					
 				}
 			} catch (IOException e) {
 				System.out.println("I/O Exception ocurred");
@@ -53,11 +53,12 @@ public class UserService {
 			}
 
 		}
-		//return null;
+		return null;
 		
 	}
 	
+	// calling UserPOJO to bring over the stored data
 	UserPOJO userPOJO = new UserPOJO();
 	
-
+	
 }
