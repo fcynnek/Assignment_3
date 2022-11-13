@@ -1,14 +1,9 @@
 package com.fcynnek.assignment3;
 
+import com.fcynnek.assignment3.UserService;
+
 public class UserPOJO {
 // this class will store user information
-
-	// calling UserService to bring over the parsed data
-	UserService userService = new UserService();
-	
-	String parsedUsername = UserService.fileReader();
-	String parsedPassword = UserService.fileReader();
-	String parsedName = UserService.fileReader();
 
 	// storing the data from UserService class as private objects
 	private String username;
@@ -28,13 +23,13 @@ public class UserPOJO {
 
 	// setters
 	public void setUsername(String parsedUsername) {
-		this.parsedUsername = username;
+		this.username = parsedUsername;
 	}
 	public void setPassword(String parsedPassword) {
-		this.parsedPassword = password;
+		this.password = parsedPassword;
 	}
 	public void setName(String parsedName) {
-		this.parsedName = name;
+		this.name = parsedName;
 	}
 
 }
