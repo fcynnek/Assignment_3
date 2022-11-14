@@ -68,7 +68,7 @@ public class UserService {
 	}
 
 	public void testPrint() {
-		// new variable
+		// practice
 		int j = 0;
 
 		while (j < numberOfLines) {

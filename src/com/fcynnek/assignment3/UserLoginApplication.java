@@ -13,23 +13,24 @@ public class UserLoginApplication {
 		
 		UserService userData = new UserService();
 		userData.loadUserData();
-//		userData.testPrint();
-//		userData.isGoodUserInput("kenny@email.com", "Password123");
-//		
-//		String testUsername = "kenny@email.com";
-//		
-//		if (userData.doesUsernameExist(testUsername)) {
-//			System.out.println("Yes");
-//			System.out.println(userData.getPasswordFromUsername(testUsername));
-//		} else {
-//			System.out.println("No");
-//		}
-//		
-//		if (userData.isGoodUserInput(testUsername, "Password1234")) {
-//			System.out.println("Match");
-//		} else {
-//			System.out.println("No match");
-//		}
+		userData.testPrint();
+		userData.isGoodUserInput(null, null);
+		
+		String testUsername = "kenny@email.com";
+		String testPassword = "Password1234";
+		
+		if (userData.doesUsernameExist(testUsername)) {
+			System.out.println("Yes");
+			System.out.println(userData.getPasswordFromUsername(testUsername));
+		} else {
+			System.out.println("No");
+		}
+		
+		if (userData.isGoodUserInput(testUsername, testPassword)) {
+			System.out.println("Match");
+		} else {
+			System.out.println("No match");
+		}
 
 			
 		
