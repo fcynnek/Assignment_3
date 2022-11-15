@@ -1,8 +1,6 @@
 package com.fcynnek.assignment3;
 
 import java.util.Scanner;
-import com.fcynnek.assignment3.UserService;
-import com.fcynnek.assignment3.UserPOJO;
 
 public class UserLoginApplication {
 // User validation with CSV File
@@ -13,24 +11,24 @@ public class UserLoginApplication {
 		
 		UserService userData = new UserService();
 		userData.loadUserData();
-		userData.testPrint();
-		userData.isGoodUserInput(null, null);
 		
-		String testUsername = "kenny@email.com";
-		String testPassword = "Password1234";
+//		String testUsername = "kenny@email.com";
+//		String testPassword = "Password1234";
+
 		
-		if (userData.doesUsernameExist(testUsername)) {
-			System.out.println("Yes");
-			System.out.println(userData.getPasswordFromUsername(testUsername));
-		} else {
-			System.out.println("No");
-		}
-		
-		if (userData.isGoodUserInput(testUsername, testPassword)) {
-			System.out.println("Match");
-		} else {
-			System.out.println("No match");
-		}
+//		userData.testPrint();
+//		if (userData.doesUsernameExist(testUsername)) {
+//			System.out.println("Yes");
+//			System.out.println(userData.getPasswordFromUsername(testUsername));
+//		} else {
+//			System.out.println("No");
+//		}
+//		
+//		if (userData.isGoodUserInput(testUsername, testPassword)) {
+//			System.out.println("Match");
+//		} else {
+//			System.out.println("No match");
+//		}
 
 			
 		
@@ -40,21 +38,29 @@ public class UserLoginApplication {
 		scannerPassword(userInput);
 		
 		int numberOfTries = 5;
-		
 		int i = 0;
 		
-		while (numberOfTries < 0) {
-			if (userData.isGoodUserInput(scannerUsername(userInput), scannerPassword(userInput)) == false) {
-				System.out.println("Invalid login, please try again");
-				numberOfTries = numberOfTries - 1;
-			} else if (numberOfTries == 0) {
-				System.out.println("Too many failed login attempts, you are now locked out.");
-			} else {
-				System.out.println("Welcome " + userData.storedUserPOJOs[i].getName());
+		while (numberOfTries < 5) {
+			scannerUsername(userInput);
+			if (userData.doesUsernameExist(scannerUsername(userInput)) == true) {
+				scannerPassword(userInput);
+				if (userData.doesUsernameExist(scannerUsername(userInput)) == true) {
+					if (userData.isGoodUserInput(scannerUsername(userInput), scannerPassword(userInput)) == false) {
+						System.out.println("Invalid login, please try again");
+						numberOfTries = numberOfTries - 1;
+					} else {
+						System.out.println("Welcome " + userData.storedUserPOJOs[i].getName());
+						break;
+					} 
+				}
 			}
-		}
 		
-
+			
+		}
+		if (numberOfTries == 0) {
+			System.out.println("Too many failed login attempts, you are now locked out.");
+		}
+		userInput.close();
 		
 	}
 

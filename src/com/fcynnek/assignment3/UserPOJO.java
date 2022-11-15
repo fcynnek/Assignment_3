@@ -1,7 +1,5 @@
 package com.fcynnek.assignment3;
 
-import com.fcynnek.assignment3.UserService;
-
 public class UserPOJO {
 // this class will store user information
 
