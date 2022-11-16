@@ -36,13 +36,13 @@ public class UserService {
 					String parsedPassword = parsedLine[1]; 	// storing parsed password
 					String parsedName = parsedLine[2]; 		// storing parsed name
 
-					UserPOJO currentUserPOJO = new UserPOJO(); 		// constructor
-					currentUserPOJO.setUsername(parsedUsername.toLowerCase()); 	// constructing username object
+					UserPOJO currentUserPOJO = new UserPOJO(); 		
+					currentUserPOJO.setUsername(parsedUsername.toLowerCase()); 	// constructing username object and making sure that all the usernames are lower case
 					currentUserPOJO.setPassword(parsedPassword); 	// constructing password object
 					currentUserPOJO.setName(parsedName); 			// constructing name object
 
-					storedUserPOJOs[i] = currentUserPOJO; // storing object in arrays
-					i = i + 1; // indexing the objects
+					storedUserPOJOs[i] = currentUserPOJO; 	// storing object in arrays
+					i = i + 1; 								// indexing the objects
 
 				}
 
