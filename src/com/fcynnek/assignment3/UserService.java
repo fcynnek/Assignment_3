@@ -11,7 +11,7 @@ public class UserService {
 
 	static final int numberOfLines = 5;
 
-	UserPOJO[] storedUserPOJOs = new UserPOJO[numberOfLines];
+	private UserPOJO[] storedUserPOJOs = new UserPOJO[numberOfLines];
 
 	// this method reads the data.txt file and parse the data
 	public String loadUserData() {
@@ -37,7 +37,7 @@ public class UserService {
 					String parsedName = parsedLine[2]; 		// storing parsed name
 
 					UserPOJO currentUserPOJO = new UserPOJO(); 		// constructor
-					currentUserPOJO.setUsername(parsedUsername); 	// constructing username object
+					currentUserPOJO.setUsername(parsedUsername.toLowerCase()); 	// constructing username object
 					currentUserPOJO.setPassword(parsedPassword); 	// constructing password object
 					currentUserPOJO.setName(parsedName); 			// constructing name object
 
@@ -66,19 +66,6 @@ public class UserService {
 
 	}
 
-	public void testPrint() {
-		// practice
-		int j = 0;
-
-		while (j < numberOfLines) {
-			System.out.println(storedUserPOJOs[j].getName());
-			j++;
-		}
-		for (j = 0; j < numberOfLines; j++) {
-			System.out.println(storedUserPOJOs[j].getUsername());
-		}
-	}
-
 	public boolean doesUsernameExist(String username) {
 
 		int i = 0;
@@ -92,7 +79,7 @@ public class UserService {
 		return false;
 	}
 
-	public String getPasswordFromUsername(String username) {
+	private String getPasswordFromUsername(String username) {
 
 		int i = 0;
 
@@ -115,4 +102,17 @@ public class UserService {
 				}
 			} return false;
 		} 
+	
+	public String getName(String username) {
+		
+		int i = 0;
+		
+		while (i < numberOfLines) {
+			if (username.equals(storedUserPOJOs[i].getUsername())) {
+				return storedUserPOJOs[i].getName();
+			}
+			i = i + 1;
+		}
+		return null;
+	}
 }
