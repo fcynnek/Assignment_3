@@ -1,2 +1,5 @@
 # Assignment_3
- K. Cheng's Assignment #3 for Coders Campus Bootcamp
+ 
+Assignment #3 for Coders Campus Bootcamp
+
+This assignment was to mimic a user login.
